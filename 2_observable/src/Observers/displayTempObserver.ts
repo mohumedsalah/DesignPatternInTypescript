@@ -9,7 +9,12 @@ export class DisplayTempObserver implements IObserver {
     console.log("value of temp updated to : " + this.subject.getTempData)
   }
 
-  endReceiveNotify(){
-    this.subject.removeObserver(this);
+  endReceiveNotify() {
+    this.subject.removeObserver(this)
+  }
+
+  subscript(station: WeatherStationSubject) {
+    this.subject = station
+    station.registerObserver(this)
   }
 }

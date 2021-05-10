@@ -9,7 +9,7 @@ export class WeatherStationSubject extends ISubject {
   }
 
   changeData(): void {
-    this.temp += 1
+    this.temp  = Math.floor(Math.random() * 100) + 1  
     this.observers.forEach((el) => {
       el.update()
     })
